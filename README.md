@@ -48,7 +48,7 @@ Our project bridges this gap by applying machine learning to historical NYSE dat
 
 Mitigation includes rolling-window validation, regularization, and model explainability analysis.
 
-### Project Objective
+## Project Objective
 
 - Developed a reproducible ML pipeline for predicting stock price direction using engineered technical features.
 
