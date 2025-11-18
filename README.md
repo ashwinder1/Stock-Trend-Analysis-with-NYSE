@@ -110,6 +110,10 @@ We use the approach that answers the business question by quantifying which indi
 | **6. Interpretability**    | Use SHAP to visualize feature contributions                              |
 | **7. Reporting**           | Summarize results, insights, and visualizations                          |
 
+## Project Workflow
+
+![stock_trend_prediction_workflow](./images/project_flow_architecture.png)
+
 ## Project Structure
 
 ```
@@ -117,11 +121,14 @@ Stock-Trend-Analysis-with-NYSE/
 ├── data/
 │   ├── raw/
 │   └── processed/
-├── experiments/
-│   └── notebooks/
+├── feature/
 ├── models/
 ├── images/
+├── models
+├── production
+│   └── src
 ├── README.md
+├── requirements.yml
 └── .gitignore
 ```
 
@@ -129,11 +136,15 @@ Stock-Trend-Analysis-with-NYSE/
 
 -   `data/` → Raw and processed datasets
     
--   `experiments/` → Jupyter notebooks for experiments and EDA
+-   `feature/` → Jupyter notebooks for EDA and Feature Engineering
     
 -   `models/` → Trained models and pickled files
     
 -   `images/` → Visual outputs for documentation
+
+-   `production/` → Code for deploying the model
+
+-   `requirements.yml` → File with all the dependencies
     
 -   `.gitignore` → Excludes large or sensitive files
 
@@ -161,27 +172,29 @@ This project relies on a suite of Python libraries and frameworks that support e
 
 ## Results
 
-* EDA and Feature Engineering:
+### EDA and Feature Engineering
   The dataset had information about opening price for the day, Highest price of the day, closing price of the day, Lowest price of the day and volume of stock traded on that day. It contained information on 501 stocks for a span of 6 years. The data was then sorted based on symbol and date.
-
-  Features like 1 day return, Price up tomorrow, momentum, moving average for windows like 5 days and 10 days, relative strength index were calculated and added to the dataframe to anable the model to pick up patterns and classify properly. 
-
-  ![alt text](image.png)
 
   The dataset was then inspected for noise like missing values, infinity, NaNs and Winsorised for extreme values.
 
-  The data was  then explored for stocks which gave the highest 1 day return in that span. 
+  The data was then explored for stocks which gave the highest 1 day return in that span. 
 
-  ![alt text](image-1.png)
+  ![alt text](./images/eda_output.png)
 
   The Correlation Heatmap shows that some features like momentum and log of 1 day return had significant correlation. 
 
-  ![alt text](image-2.png)
+  ![alt text](./images/correlation_heatmap.png)
+
+  Features like 1 day return, Price up tomorrow, momentum, moving average for windows like 5 days and 10 days, relative strength index were calculated and added to the dataframe to anable the model to pick up patterns and classify properly. 
+
+  ![alt text](./images/feature_engineer_output.png)
 
   The data with engineered features was then saved into a Parquet file to optimize disk space.
 
   The Data in the Parquet file was then used by different models (Random Forest, LightGBM, XGBoost, CNN and LSTM).
 
+### Model Implementation
+  
   The models that were built to digest this dataset for prediction are listed below.
 
   1. Random Forest: ML model that combines many decision trees that each vote on the final prediction.
@@ -213,14 +226,24 @@ This project relies on a suite of Python libraries and frameworks that support e
 
 ### Achievements
 
+- The predictive model captures meaningful short-term market behaviors, achieving a statistically significant edge above random chance (AUC 0.545).
+- With feature importance, we found that momentum indicators, intraday volatility, and volume anomalies emerge as the primary drivers of next-day price direction.
+- Although daily direction prediction is inherently noisy, this model can enhance trading decisions by providing a directional bias, informing risk management, and helping detect market trends.
+
 ### Next Steps
 
+- Add more alpha factors like MACD, Bollinger Bands etc
+- Integrate macroeconomic indicators and some fundamental features
+- Use multi-horizon targets and increase the assets
+- Predict return magnitude, not just up/down
+- Deployment of model in production with real time data like yfinance.
 
 ## Team Members Reflection Videos
 
 Each member will provide a short reflection video discussing their role, learning outcomes, and contributions.
 
-1. Mahshid Chekini - https://drive.google.com/file/d/1_6boV-uJIeJMfO96rKGw1y9YV2X1guOr/view?usp=sharing
-
-2. Senthil Arumugam Subramanian - https://youtu.be/CgZ4qmz1opk
+1. [Mahshid Chekini](https://drive.google.com/file/d/1_6boV-uJIeJMfO96rKGw1y9YV2X1guOr/view?usp=sharing)
+2. [Senthil Arumugam Subramanian](https://youtu.be/CgZ4qmz1opk)
+3. [Muhammad Faisal](https://drive.google.com/file/d/1_6boV-uJIeJMfO96rKGw1y9YV2X1guOr/view?usp=sharing)
+4. [Ashwinder Singh]()
 
