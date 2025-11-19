@@ -17,8 +17,8 @@ By leveraging historical price data (split-adjusted) and technical indicators, t
 ### Business Problem
 
 Financial markets move rapidly, and anticipating price direction is essential for traders and investors. Traditional chart-based or indicator-driven approaches often suffer from subjectivity and lag.
-
-Our project bridges this gap by applying machine learning to historical NYSE data, providing an evidence-based framework for predicting stock index trends and identifying patterns not easily visible through manual analysis.
+Huddle with MahChek, Muhammad Faisal, Senthil Arumugam S
+Our project bridges this gap by applying machine learning to historical NYSE data, providing an evidence-based framework for predicting stock index trends andHuddle with MahChek, Muhammad Faisal, Senthil Arumugam S identifying patterns not easily visible through manual analysis.
 
 ### Stakeholders & Relevance
 
@@ -156,7 +156,7 @@ This project relies on a suite of Python libraries and frameworks that support e
 | ------------------------- | ------------------------------------------------- |
 | **Data Processing**       | pandas, NumPy                                     |
 | **ML / DL Models**        | scikit-learn, XGBoost, LightGBM, Keras/TensorFlow |
-| **EDA / Visualization**   | matplotlib, seaborn, scikit-plot, ydata_profiling |
+| **EDA / Visualization**   | matplotlib, seaborn, scikit-plot |
 | **Imbalanced Data**       | imbalanced-learn (SMOTE, ADASYN)                  |
 | **Hyperparameter Tuning** | hyperopt, optuna                                          |
 | **Interpretability**      | shap                                              |
@@ -197,15 +197,15 @@ This project relies on a suite of Python libraries and frameworks that support e
   
   The models that were built to digest this dataset for prediction are listed below.
 
-  1. Random Forest: ML model that combines many decision trees that each vote on the final prediction.
+  1. [Random Forest](https://github.com/ashwinder1/Stock-Trend-Analysis-with-NYSE/blob/main/models/model_randomforest.ipynb): ML model that combines many decision trees that each vote on the final prediction.
     
-  2. LightGBM: fast, high-performance gradient boosting framework that uses tree-based learning with optimized histogram-based algorithms.
+  2. [LightGBM](https://github.com/ashwinder1/Stock-Trend-Analysis-with-NYSE/blob/main/models/model_LightGBM.ipynb): fast, high-performance gradient boosting framework that uses tree-based learning with optimized histogram-based algorithms.
   
-  3. XGBoost (Extreme Gradient Boosting): scalable end to-end tree boosting system that is known to handle non-linear relationships efficiently and works well with tabular data like financial time series.
+  3. [XGBoost](https://github.com/ashwinder1/Stock-Trend-Analysis-with-NYSE/blob/main/models/model_xgboost.ipynb) (Extreme Gradient Boosting): scalable end to-end tree boosting system that is known to handle non-linear relationships efficiently and works well with tabular data like financial time series.
   
-  4. CNN (Convolutional Neural Network): deep learning model that uses convolution layers to automatically detect patterns in complex or non-linear data.
+  4. [CNN](https://github.com/ashwinder1/Stock-Trend-Analysis-with-NYSE/blob/main/models/model_CNN.ipynb) (Convolutional Neural Network): deep learning model that uses convolution layers to automatically detect patterns in complex or non-linear data.
   
-  5. LSTM (Long Short-Term Memory network): recurrent neural network designed to understand patterns over time useful for time-series prediction.
+  5. [LSTM](https://github.com/ashwinder1/Stock-Trend-Analysis-with-NYSE/blob/main/models/LSTM_new%20features.ipynb) (Long Short-Term Memory network): recurrent neural network designed to understand patterns over time useful for time-series prediction.
 
 
 ## Conclusions and Future Directions
